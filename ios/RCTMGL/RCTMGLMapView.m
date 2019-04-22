@@ -391,4 +391,30 @@ static double const M2PI = M_PI * 2;
     }
 }
 
+- (void)updateAttributionButtonConstraints {
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.attributionButton attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.attributionButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant: 40];
+    
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.attributionButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant: 40];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.attributionButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1 constant:40];
+    
+    [self addConstraints:@[left, top, width, height]];
+}
+
+- (void)updateLogoViewConstaints {
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant: 54];
+    
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:85];
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.logoView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeHeight multiplier:1 constant:21];
+    
+    [self addConstraints:@[left, top, width, height]];
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    [self updateAttributionButtonConstraints];
+    [self updateLogoViewConstaints];
+}
+
 @end
